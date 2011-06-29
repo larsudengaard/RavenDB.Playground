@@ -49,6 +49,20 @@ namespace RavenDB.Playground.Tests
         }
 
         [Fact]
+        public void can_query_names_starting_with_dad()
+        {
+            using (var session = store.OpenSession())
+            {
+                var cases = session.Query<Case>()
+                    .Customize(x => x.WaitForNonStaleResultsAsOfLastWrite())
+                    .Where(x => x.Name.StartsWith("dad")).ToList();
+
+                cases.Count.ShouldBe(1);
+                cases.Select(x => x.Name).ShouldBe(new[] { "dada" });
+            }
+        }
+
+        [Fact]
         public void can_query_names_starting_with_aa()
         {
             using (var session = store.OpenSession())
