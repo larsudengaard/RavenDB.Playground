@@ -1,0 +1,16 @@
+*\Bin
+*\bin
+!Libs/RavenDB/Web/bin
+*\obj
+*\Obj
+*\.sass-cache
+*.user
+*.suo
+*.log
+*.user
+*.chk
+_ReSharper.*
+ReSharper.*
+
+Libs/RavenDB/Server/Data/*
+Libs/RavenDB/Server/Raven.Server.log.*
